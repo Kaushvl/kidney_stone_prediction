@@ -12,9 +12,9 @@ class PredictionPipeline:
 
     def predict(self,features):
         try:
-            preprocessor_path = artifact_entity.DataTransformationArtifact.transform_object_path
+            preprocessor_path = r"C:\Projects\kidney_stone_pred\kidney_stone_prediction\artifact\data_transformation\tranformer\transformer.pkl"
 
-            model_path = artifact_entity.ModelTrainerArtifact.model_path
+            model_path = r"C:\Projects\kidney_stone_pred\kidney_stone_prediction\artifact\model_trainer\model\model.pkl"
 
             preprocessor = load_model(preprocessor_path)
 

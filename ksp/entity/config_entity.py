@@ -14,7 +14,7 @@ class TrainingPipelineConfig:
         try:
             self.database_name = "kidney_stone"
             self.collection_name = "kidney_stone_database"
-            self.artifact_dir = os.path.join(os.getcwd(),"artifact",f"{datetime.now().strftime('%y%m%d%H%M%S')}")
+            self.artifact_dir = os.path.join(os.getcwd(),"artifact")
         except Exception as e:
             raise CustomException(e, sys)
 
@@ -53,7 +53,7 @@ class DataTransformationConfig:
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         try:
             self.data_transformation_dir = os.path.join(training_pipeline_config.artifact_dir,'data_transformation')
-            self.tranform_object_path = os.path.join(self.data_transformation_dir,"tranformer",TRANSFORM_OBJECT_PATH_NAME)
+            self.transform_object_path = os.path.join(self.data_transformation_dir,"tranformer",TRANSFORM_OBJECT_PATH_NAME)
             self.transform_train_path = os.path.join(self.data_transformation_dir,"transformed",TRAIN_FILE_PATH.replace("csv","npz"))
             self.transform_test_path = os.path.join(self.data_transformation_dir,"transformed",TEST_FILE_PATH.replace("csv","npz"))
 

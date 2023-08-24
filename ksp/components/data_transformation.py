@@ -85,10 +85,10 @@ class DataTransformation:
             utils.save_numpy_array_data(filepath=self.data_transformation_config.transform_train_path,array=train_arr)
             utils.save_numpy_array_data(filepath=self.data_transformation_config.transform_test_path,array=test_arr)
 
-            utils.save_object(filepath=self.data_transformation_config.tranform_object_path,obj=transformation_pipeline)
+            utils.save_object(filepath=self.data_transformation_config.transform_object_path,obj=transformation_pipeline)
 
             data_transformation_artifact = artifact_entity.DataTransformationArtifact(
-                transform_object_path=self.data_transformation_config.tranform_object_path,
+                transform_object_path=self.data_transformation_config.transform_object_path,
                 transform_train_path=self.data_transformation_config.transform_train_path,
                 transform_test_path=self.data_transformation_config.transform_test_path,
             )

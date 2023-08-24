@@ -42,7 +42,7 @@ def save_object(filepath:str,obj:object)->None:
     try:
         os.makedirs(os.path.dirname(filepath),exist_ok=True)
         with open(filepath,'wb') as file_obj:
-            dill.dump(obj,file_obj)
+            pickle.dump(obj,file_obj)
     except Exception as e:
         raise CustomException(e, sys)
     

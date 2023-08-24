@@ -34,6 +34,9 @@ class ModelTrainer:
             x_train , y_train = train_arr[:,:-1],train_arr[:,-1]
             x_test,y_test = test_arr[:,:-1],test_arr[:,-1]
 
+            # logging.info(f"{x_train}")
+            # logging.info(f"{x_test}")
+
             model = self.train_model(x=x_train,y=y_train)
 
             y_pred_train = model.predict(x_train)

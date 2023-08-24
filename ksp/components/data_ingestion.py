@@ -35,8 +35,8 @@ class DataIngestion:
             dataset_dir = os.path.dirname(self.data_ingestion_config.train_file_path)
             os.makedirs(dataset_dir, exist_ok=True)
 
-            train_df.to_csv(self.data_ingestion_config.train_file_path)
-            test_df.to_csv(self.data_ingestion_config.test_file_path)
+            train_df.to_csv(self.data_ingestion_config.train_file_path,index=False)
+            test_df.to_csv(self.data_ingestion_config.test_file_path,index=False)
 
             data_ingestion_artifact = artifact_entity.DataIngestionArtifact(
                 feature_store_file_path=self.data_ingestion_config.feature_store_file_path,
