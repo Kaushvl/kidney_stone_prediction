@@ -7,6 +7,7 @@ import pandas as pd
 from ksp.utils import get_collection_as_dataframe
 from ksp.components.data_transformation import DataTransformation
 from sklearn.model_selection import train_test_split
+from ksp.components.model_trainer import ModelTrainer
 
 class DataIngestion:
 
@@ -25,7 +26,7 @@ class DataIngestion:
             # print(df.shape)
 
             df = df.drop(columns=['id'])
-            print(df.shape)
+            # print(df.shape)
 
             df.to_csv(self.data_ingestion_config.feature_store_file_path, index=False)
 
@@ -57,5 +58,10 @@ if __name__ == "__main__":
     data_ingestion_artifact = data_ingestion.initiate_data_ingestion()
 
     data_transformation_config = config_entity.DataTransformationConfig(training_pipeline_config=training_pipeline_config)
-    data_trans = DataTransformation(data_ingestion_artifact=data_ingestion_artifact,data_transformation_config=data_transformation_config)
-    train_df, test_df= data_trans.initiate_data_transformation()
+    data_transformation = DataTransformation(data_ingestion_artifact=data_ingestion_artifact,data_transformation_config=data_transformation_config)
+    data_transformation_artifact = data_transformation.initiate_data_transformation()
+
+
+    model_trainer_config  = config_entity.ModelTrainerConfig(training_pipeline_config=training_pipeline_config)
+    model_trainer = ModelTrainer(model_trainer_config=model_trainer_config,data_transformation_artifact=data_transformation_artifact)
+    model_trainer_artifact = model_trainer.initiate_model_trainer()

@@ -63,7 +63,7 @@ class DataTransformation:
             train_df = self.handling_outliers(base_df,train_df)
             test_df = self.handling_outliers(base_df,test_df)
 
-            print(train_df.columns)
+            # print(train_df.columns)
             input_feature_train_df = train_df.drop(columns= [TARGET_COLUMN])
             input_feature_test_df = test_df.drop(columns=[TARGET_COLUMN])
 

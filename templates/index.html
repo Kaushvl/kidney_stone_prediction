@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feature Input Form</title>
+</head>
+<body>
+    <h1>Enter Feature Values</h1>
+    <form method="post">
+        Gravity: <input type="number" step="any" name="gravity"><br>
+        pH: <input type="number" step="any" name="ph"><br>
+        Osmo: <input type="number" name="osmo"><br>
+        Conductivity: <input type="number" step="any" name="cond"><br>
+        Urea: <input type="number" name="urea"><br>
+        Calcium: <input type="number" step="any" name="calc"><br>
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if result %}
+    <h2>Result</h2>
+    <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>

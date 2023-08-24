@@ -12,3 +12,10 @@ class DataTransformationArtifact:
     transform_object_path:str
     transform_train_path:str
     transform_test_path:str
+
+
+@dataclass
+class ModelTrainerArtifact:
+    model_path : str
+    training_accuracy : float
+    testing_accuracy : float

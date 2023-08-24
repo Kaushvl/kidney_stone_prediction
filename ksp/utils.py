@@ -5,6 +5,7 @@ from ksp.exception import CustomException
 import sys,os,dill
 import pandas as pd
 import numpy as np
+import pickle
 
 def get_collection_as_dataframe(database_name:str,collection_name:str):
     try:
@@ -58,7 +59,15 @@ def load_object(filepath:str)-> object:
         raise CustomException(e, sys)
     
 
+def load_model(filepath:str)-> object:
+    try:
+        if not os.path.exists(filepath):
+            raise Exception(f"filepath :{filepath} doesn't exsist ")
+        with open(filepath,'rb') as file_obj:
+            return pickle.load(file_obj)
 
+    except Exception as e:
+        raise CustomException(e, sys)
     
 def convert_columns_float(df:pd.DataFrame,exclude_columns:list)->pd.DataFrame:
     try:
