@@ -10,8 +10,10 @@ from sklearn.model_selection import train_test_split
 from ksp.components.model_trainer import ModelTrainer
 
 class DataIngestion:
-
+# use proper naming conventions
     def __init__(self, data_ingestion_config: config_entity.DataIngestionConfig):
+        # proper type checking should be done for inputs and output type should be mentioned while defining the function
+        # proper doc string should be present 
         try:
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
@@ -23,10 +25,8 @@ class DataIngestion:
 
             feature_store_dir = os.path.dirname(self.data_ingestion_config.feature_store_file_path)
             os.makedirs(feature_store_dir, exist_ok=True)
-            # print(df.shape)
 
             df = df.drop(columns=['id'])
-            # print(df.shape)
 
             df.to_csv(self.data_ingestion_config.feature_store_file_path, index=False)
 
@@ -47,8 +47,10 @@ class DataIngestion:
             return data_ingestion_artifact
         except Exception as e:
             raise CustomException(e, sys)
+            # while handling the exception return the data also, for example none or empty string and list etc
 
 if __name__ == "__main__":
+    # no issues with this but dont push it while uploading it to github
     training_pipeline_config = config_entity.TrainingPipelineConfig()
 
     data_ingestion_config = config_entity.DataIngestionConfig(training_pipeline_config=training_pipeline_config)

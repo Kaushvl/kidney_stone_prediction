@@ -9,7 +9,8 @@ from sklearn.impute import KNNImputer
 from sklearn.pipeline import Pipeline
 from ksp import utils
 
-
+#dont leave empty spaces without any reasons
+# use proper comments in code for better readability
 class DataTransformation:
    
     def __init__(self, data_ingestion_artifact:artifact_entity.DataIngestionArtifact,
@@ -63,12 +64,11 @@ class DataTransformation:
             train_df = self.handling_outliers(base_df,train_df)
             test_df = self.handling_outliers(base_df,test_df)
 
-            # print(train_df.columns)
+            #always remove un necessary comments before pushing the code
             input_feature_train_df = train_df.drop(columns= [TARGET_COLUMN])
             input_feature_test_df = test_df.drop(columns=[TARGET_COLUMN])
 
 
-            
             target_feature_train_df = train_df[TARGET_COLUMN]
             target_feature_test_df = test_df[TARGET_COLUMN]
 

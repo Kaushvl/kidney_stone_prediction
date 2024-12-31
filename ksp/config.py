@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import json,os,sys
 
-class EnvironmentVariable:
+class  EnvironmentVariable:
     mongo_db_url = "mongodb+srv://kvushvl:kaushalbro1@cluster0.ajqs2ox.mongodb.net/?retryWrites=true&w=majority"
 
 
